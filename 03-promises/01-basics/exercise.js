@@ -15,7 +15,9 @@
  * await delayedResolve('hello', 100); // 'hello' after 100ms
  */
 function delayedResolve(value, delay) {
-  // Your code here
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(value), delay);
+  })
 }
 
 /**
@@ -28,7 +30,9 @@ function delayedResolve(value, delay) {
  * await delayedReject(new Error('fail'), 100); // throws after 100ms
  */
 function delayedReject(error, delay) {
-  // Your code here
+  return new Promise((_,reject) => {
+    setTimeout(() => reject(error), delay)
+  })
 }
 
 /**
@@ -42,6 +46,7 @@ function delayedReject(error, delay) {
 function doubleAndAddTen(num) {
   // Use Promise.resolve and .then to chain
   // Your code here
+  return Promise.resolve(num * 2).then(n => n+10);
 }
 
 /**
@@ -56,7 +61,9 @@ function doubleAndAddTen(num) {
  * await readFilePromise('test.txt'); // 'file contents'
  */
 function promisify(callbackFn) {
-  // Your code here
+  return new Promise(resolve => {
+    resolve(callbackFn());
+  });
 }
 
 /**
