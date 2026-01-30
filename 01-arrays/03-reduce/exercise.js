@@ -12,7 +12,7 @@
  * Example: [1, 2, 3, 4] => 10
  */
 function sum(numbers) {
-  // Your code here
+  return numbers.reduce((acc, c) => acc + c, 0);
 }
 
 /**
@@ -23,7 +23,7 @@ function sum(numbers) {
  * Example: [3, 1, 4, 1, 5] => 5
  */
 function max(numbers) {
-  // Your code here
+  return numbers.reduce((acc, c) => c > acc ? c : acc, numbers[0])
 }
 
 /**
@@ -34,7 +34,7 @@ function max(numbers) {
  * Example: ['a', 'b', 'a'] => {a: 2, b: 1}
  */
 function countOccurrences(array) {
-  // Your code here
+  return array.reduce((acc, c) => c in acc ? {...acc, [c]: acc[c] + 1} :  {...acc,[c]: 1}, {})
 }
 
 /**
@@ -48,7 +48,7 @@ function countOccurrences(array) {
  * => {a: [{type: 'a', v: 1}, {type: 'a', v: 3}], b: [{type: 'b', v: 2}]}
  */
 function groupBy(array, property) {
-  // Your code here
+  return array.reduce((acc, c) => c.type in acc ? {...acc, [c.type]: [...acc[c.type], c]} :  {...acc, [c.type]: [c]})
 }
 
 /**
@@ -59,7 +59,7 @@ function groupBy(array, property) {
  * Example: [[1, 2], [3, 4], [5]] => [1, 2, 3, 4, 5]
  */
 function flatten(arrays) {
-  // Your code here
+  return arrays.reduce((acc, c) =>  [...acc, ...c], [])
 }
 
 /**
