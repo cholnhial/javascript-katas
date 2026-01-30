@@ -1,0 +1,35 @@
+{
+  "name": "javascript-katas",
+  "version": "1.0.0",
+  "description": "JavaScript katas for intermediate developers leveling up from Java",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:verbose": "jest --verbose",
+    "test:kata": "jest --testPathPattern"
+  },
+  "keywords": [
+    "javascript",
+    "katas",
+    "learning",
+    "exercises",
+    "jest"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/*.test.js"
+    ],
+    "collectCoverageFrom": [
+      "**/exercise.js"
+    ],
+    "verbose": true
+  }
+}
