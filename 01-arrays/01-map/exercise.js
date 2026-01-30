@@ -12,7 +12,7 @@
  * Example: [1, 2, 3] => [2, 4, 6]
  */
 function doubleNumbers(numbers) {
-  // Your code here
+  return numbers.map(n => n * 2);
 }
 
 /**
@@ -23,7 +23,7 @@ function doubleNumbers(numbers) {
  * Example: [{name: 'Alice'}, {name: 'Bob'}] => ['Alice', 'Bob']
  */
 function extractNames(objects) {
-  // Your code here
+  return objects.map(o => o.name);
 }
 
 /**
@@ -34,7 +34,7 @@ function extractNames(objects) {
  * Example: ['hello', 'world'] => ['HELLO', 'WORLD']
  */
 function toUpperCase(strings) {
-  // Your code here
+  return strings.map(s => s.toUpperCase());
 }
 
 /**
@@ -45,7 +45,7 @@ function toUpperCase(strings) {
  * Example: [10, 20, 30] => [10, 21, 32] (10+0, 20+1, 30+2)
  */
 function addIndex(numbers) {
-  // Your code here
+  return numbers.map((n, index) => n+index);
 }
 
 /**
@@ -56,7 +56,7 @@ function addIndex(numbers) {
  * Example: [{firstName: 'John', lastName: 'Doe'}] => ['John Doe']
  */
 function formatNames(people) {
-  // Your code here
+  return people.map(p => `${p.firstName} ${p.lastName}`);
 }
 
 /**
@@ -67,7 +67,7 @@ function formatNames(people) {
  * Example: [2, -3, 4] => [4, null, 16]
  */
 function squarePositive(numbers) {
-  // Your code here
+  return numbers.map(n => n < 0 ? null : n*n);
 }
 
 /**
@@ -79,7 +79,7 @@ function squarePositive(numbers) {
  * Example: [0, 100] => [32, 212]
  */
 function celsiusToFahrenheit(celsius) {
-  // Your code here
+  return celsius.map(c => ((c*(9/5))+32));
 }
 
 /**
@@ -91,7 +91,7 @@ function celsiusToFahrenheit(celsius) {
  * Example: ['a', 'b'], [1, 2] => [{key: 'a', value: 1}, {key: 'b', value: 2}]
  */
 function zipToObjects(keys, values) {
-  // Your code here
+  return keys.map((k, i) => ({key: k, value: values[i]}))
 }
 
 module.exports = {
