@@ -48,7 +48,7 @@ function countOccurrences(array) {
  * => {a: [{type: 'a', v: 1}, {type: 'a', v: 3}], b: [{type: 'b', v: 2}]}
  */
 function groupBy(array, property) {
-  return array.reduce((acc, c) => c.type in acc ? {...acc, [c.type]: [...acc[c.type], c]} :  {...acc, [c.type]: [c]})
+  return array.reduce((acc, c) => c[property] in acc ? {...acc, [c[property]]: [...acc[c[property]], c]} :  {...acc, [c[property]]: [c]}, {})
 }
 
 /**
@@ -70,7 +70,9 @@ function flatten(arrays) {
  * Example: [['a', 1], ['b', 2]] => {a: 1, b: 2}
  */
 function fromPairs(pairs) {
-  // Your code here
+  return pairs.reduce((acc, c) => {
+    return {...acc, [c[0]]: c[1]}
+  }, {})
 }
 
 /**
@@ -81,7 +83,10 @@ function fromPairs(pairs) {
  * Example: [1, 2, 3, 4, 5] => 3
  */
 function average(numbers) {
-  // Your code here
+  if (numbers.length === 0) {
+    return 0;
+  }
+  return numbers.reduce((acc, c) => acc = acc + c,0)/numbers.length;
 }
 
 /**
@@ -92,7 +97,7 @@ function average(numbers) {
  * Example: compose(f, g, h)(x) === f(g(h(x)))
  */
 function compose(...fns) {
-  // Your code here
+  return  x => fns.reduceRight((acc, fn) => fn(acc), x);
 }
 
 /**
@@ -104,7 +109,15 @@ function compose(...fns) {
  * Example: [1, 2, 3, 4], n => n % 2 === 0 => [[2, 4], [1, 3]]
  */
 function partition(array, predicate) {
-  // Your code here
+  return array.reduce((acc, c) => {
+    const passing = acc[0];
+    const failing = acc[1];
+    if (predicate(c)) {
+      return [[...passing, c], [...failing]]
+    } else {
+      return [[...passing], [...failing, c]]
+    }
+  }, [[],[]])
 }
 
 /**
@@ -117,7 +130,7 @@ function partition(array, predicate) {
  * => {1: {id: 1, name: 'a'}, 2: {id: 2, name: 'b'}}
  */
 function keyBy(array, key) {
-  // Your code here
+  return array.reduce((acc, c) => ({...acc, [c[key]]: c}), {})
 }
 
 module.exports = {
