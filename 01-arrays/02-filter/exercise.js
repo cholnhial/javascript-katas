@@ -12,7 +12,7 @@
  * Example: [1, 2, 3, 4, 5] => [2, 4]
  */
 function filterEvens(numbers) {
-  // Your code here
+  return numbers.filter(n => n % 2 === 0);
 }
 
 /**
@@ -24,7 +24,7 @@ function filterEvens(numbers) {
  * Example: ['a', 'ab', 'abc'], 1 => ['ab', 'abc']
  */
 function filterLongerThan(strings, n) {
-  // Your code here
+  return strings.filter(s => s.length > n);
 }
 
 /**
@@ -35,7 +35,7 @@ function filterLongerThan(strings, n) {
  * Example: [0, 1, false, 2, '', 3, null] => [1, 2, 3]
  */
 function removeFalsy(array) {
-  // Your code here
+  return array.filter(i => !!i);
 }
 
 /**
@@ -48,7 +48,7 @@ function removeFalsy(array) {
  * Example: [{a: 1}, {a: 2}], 'a', 1 => [{a: 1}]
  */
 function filterByProperty(objects, property, value) {
-  // Your code here
+  return objects.filter(o => o[property] === value);
 }
 
 /**
@@ -59,7 +59,7 @@ function filterByProperty(objects, property, value) {
  * Example: [1, 2, 2, 3, 1] => [1, 2, 3]
  */
 function unique(array) {
-  // Your code here
+ return array.filter((n, index, self) => self.indexOf(n) === index );
 }
 
 /**
@@ -72,7 +72,7 @@ function unique(array) {
  * Example: [1, 5, 10, 15], 5, 12 => [5, 10]
  */
 function filterInRange(numbers, min, max) {
-  // Your code here
+  return numbers.filter(n => n >= min && n <= max);
 }
 
 /**
@@ -84,7 +84,7 @@ function filterInRange(numbers, min, max) {
  * Example: [1, 2, 3, 4, 5], [2, 4, 6] => [2, 4]
  */
 function filterByWhitelist(array, whitelist) {
-  // Your code here
+  return array.filter(i => whitelist.includes(i));
 }
 
 /**
@@ -99,7 +99,16 @@ function filterByWhitelist(array, whitelist) {
  * => [{address: {city: 'NYC'}}]
  */
 function filterByNestedProperty(objects, path, value) {
-  // Your code here
+  return objects.filter(o => {
+    const pathParts = path.split(".");
+    let cursor = o;
+    pathParts.forEach(pathPart => {
+      if (cursor.hasOwnProperty(pathPart)) {
+        cursor = cursor[pathPart];
+      }
+    })
+    return cursor === value;
+  });
 }
 
 module.exports = {
