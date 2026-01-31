@@ -109,9 +109,7 @@ function compose(...fns) {
  * Example: [1, 2, 3, 4], n => n % 2 === 0 => [[2, 4], [1, 3]]
  */
 function partition(array, predicate) {
-  return array.reduce((acc, c) => {
-    const passing = acc[0];
-    const failing = acc[1];
+  return array.reduce(([passing, failing], c) => {
     if (predicate(c)) {
       return [[...passing, c], [...failing]]
     } else {
