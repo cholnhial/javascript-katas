@@ -10,7 +10,7 @@
  * Example: [[1, 2], [3, 4]] => [1, 2, 3, 4]
  */
 function flattenOneLevel(array) {
-  // Your code here
+  return array.flatMap(a => a);
 }
 
 /**
@@ -22,7 +22,7 @@ function flattenOneLevel(array) {
  * Example: [1, [2, [3]]], 2 => [1, 2, 3]
  */
 function flattenToDepth(array, depth) {
-  // Your code here
+  return array.flat(depth);
 }
 
 /**
@@ -33,7 +33,7 @@ function flattenToDepth(array, depth) {
  * Example: [1, [2, [3, [4]]]] => [1, 2, 3, 4]
  */
 function flattenDeep(array) {
-  // Your code here
+  return array.flat(Infinity);
 }
 
 /**
@@ -44,7 +44,7 @@ function flattenDeep(array) {
  * Example: ['hello world', 'foo bar'] => ['hello', 'world', 'foo', 'bar']
  */
 function splitAndFlatten(sentences) {
-  // Your code here
+  return sentences.flatMap(s => s.split(" "));
 }
 
 /**
@@ -55,7 +55,7 @@ function splitAndFlatten(sentences) {
  * Example: [{tags: ['a', 'b']}, {tags: ['c']}] => ['a', 'b', 'c']
  */
 function getAllTags(posts) {
-  // Your code here
+  return posts.flatMap(p => p.tags);
 }
 
 /**
