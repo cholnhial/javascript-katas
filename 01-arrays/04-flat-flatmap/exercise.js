@@ -66,7 +66,7 @@ function getAllTags(posts) {
  * Example: [1, 2, 3] => [1, 1, 2, 2, 3, 3]
  */
 function duplicateElements(array) {
-  // Your code here
+  return array.flatMap(n => [n,n]);
 }
 
 /**
@@ -78,7 +78,7 @@ function duplicateElements(array) {
  * Example: [1, 2, 3, 4, 5] => [4, 8] (only 2 and 4 are even)
  */
 function doubleEvens(numbers) {
-  // Your code here
+  return numbers.flatMap(n => n % 2 === 0 ? [n*2] : []);
 }
 
 /**
@@ -90,7 +90,7 @@ function doubleEvens(numbers) {
  * Example: [1, 2], ['a', 'b'] => [[1,'a'], [1,'b'], [2,'a'], [2,'b']]
  */
 function cartesianProduct(arr1, arr2) {
-  // Your code here
+  return arr1.flatMap(p => arr2.flatMap(p2 => [[p, p2]]));
 }
 
 /**
@@ -101,7 +101,7 @@ function cartesianProduct(arr1, arr2) {
  * Example: [[1, 2], [], [3], [], [4, 5]] => [1, 2, 3, 4, 5]
  */
 function compactAndFlatten(array) {
-  // Your code here
+  return array.flatMap(a => a);
 }
 
 /**
@@ -112,7 +112,14 @@ function compactAndFlatten(array) {
  * Example: [[1, 3], [7, 9]] => [1, 2, 3, 7, 8, 9]
  */
 function expandRanges(ranges) {
-  // Your code here
+  return ranges.flatMap(nums => {
+      const result = [];
+      for (let i = nums[0]; i < nums[nums.length - 1]; i++) {
+        result.push(i);
+      }
+      result.push(nums[nums.length -1]);
+      return result;
+  })
 }
 
 module.exports = {
