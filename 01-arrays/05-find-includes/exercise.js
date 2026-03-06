@@ -108,7 +108,7 @@ function allInStock(items) {
 }
 
 /**
- * Find the first object where nested property matches
+ * Find the first object where nested property matchess
  * @param {Object[]} objects
  * @param {string} path - Dot notation path
  * @param {any} value
