@@ -5,118 +5,126 @@
 
 /**
  * Find the first even number
- * @param {number[]} numbers 
+ * @param {number[]} numbers
  * @returns {number|undefined}
- * 
+ *
  * Example: [1, 3, 4, 6] => 4
  */
 function findFirstEven(numbers) {
-  // Your code here
+   const firstEvenIndex = numbers.findIndex(n => n % 2 === 0);
+   return numbers[firstEvenIndex];
 }
 
 /**
  * Find user by id
  * @param {Object[]} users - Array of {id, name} objects
- * @param {number} id 
+ * @param {number} id
  * @returns {Object|undefined}
- * 
+ *
  * Example: [{id: 1, name: 'A'}], 1 => {id: 1, name: 'A'}
  */
 function findUserById(users, id) {
-  // Your code here
+  return users.find(o => o.id === id);
 }
 
 /**
  * Find index of first negative number
- * @param {number[]} numbers 
+ * @param {number[]} numbers
  * @returns {number} -1 if not found
- * 
+ *
  * Example: [1, 2, -3, 4] => 2
  */
 function findNegativeIndex(numbers) {
-  // Your code here
+  return numbers.findIndex(n => n < 0);
 }
 
 /**
  * Check if array contains a value
- * @param {any[]} array 
- * @param {any} value 
+ * @param {any[]} array
+ * @param {any} value
  * @returns {boolean}
- * 
+ *
  * Example: [1, 2, 3], 2 => true
  */
 function contains(array, value) {
-  // Your code here
+  return array.includes(value);
 }
 
 /**
  * Check if any number is greater than threshold
- * @param {number[]} numbers 
- * @param {number} threshold 
+ * @param {number[]} numbers
+ * @param {number} threshold
  * @returns {boolean}
- * 
+ *
  * Example: [1, 2, 3], 2 => true (3 > 2)
  */
 function hasGreaterThan(numbers, threshold) {
-  // Your code here
+  return numbers.find(n => n > threshold) >= 0;
 }
 
 /**
  * Check if all numbers are positive
- * @param {number[]} numbers 
+ * @param {number[]} numbers
  * @returns {boolean}
- * 
+ *
  * Example: [1, 2, 3] => true, [1, -2, 3] => false
  */
 function allPositive(numbers) {
-  // Your code here
+  return numbers.every(n => n > 0);
 }
 
 /**
  * Check if array has any duplicates
- * @param {any[]} array 
+ * @param {any[]} array
  * @returns {boolean}
- * 
+ *
  * Example: [1, 2, 3, 2] => true, [1, 2, 3] => false
  */
 function hasDuplicates(array) {
-  // Your code here
+  return array.some((item, i) => array.indexOf(item) !== i);
 }
 
 /**
  * Check if user has any of the required roles
- * @param {string[]} userRoles 
- * @param {string[]} requiredRoles 
+ * @param {string[]} userRoles
+ * @param {string[]} requiredRoles
  * @returns {boolean}
- * 
+ *
  * Example: ['user', 'admin'], ['admin', 'super'] => true
  */
 function hasAnyRole(userRoles, requiredRoles) {
-  // Your code here
+  return (new Set(userRoles)).intersection((new Set(requiredRoles))).size > 0;
 }
 
 /**
  * Check if all items are in stock (quantity > 0)
  * @param {Object[]} items - Array of {name, quantity}
  * @returns {boolean}
- * 
+ *
  * Example: [{name: 'a', quantity: 5}] => true
  */
 function allInStock(items) {
-  // Your code here
+  return items.every(item => item.quantity > 0);
 }
 
 /**
  * Find the first object where nested property matches
- * @param {Object[]} objects 
+ * @param {Object[]} objects
  * @param {string} path - Dot notation path
- * @param {any} value 
+ * @param {any} value
  * @returns {Object|undefined}
- * 
+ *
  * Example: [{a: {b: 1}}, {a: {b: 2}}], 'a.b', 2 => {a: {b: 2}}
  */
 function findByNestedProperty(objects, path, value) {
-  // Your code here
+  return objects.find(o => {
+    const keys = path.split(".");
+    for (let k of keys) {
+      if (o === undefined || o === null) return false;
+      o = o[k];
+    }
+    return o === value;
+  })
 }
 
 module.exports = {
